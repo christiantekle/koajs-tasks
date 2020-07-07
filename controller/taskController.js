@@ -22,5 +22,16 @@ const postTask = async (ctx) => {
     ctx.body = "Error: " + err;
   }
 };
+
+const deleteTask = async (ctx) => {
+  try {
+    await Task.deleteOne({
+      _id: ctx.params.id,
+    });
+  } catch (err) {
+    ctx.body = "Error: " + err;
+  }
+};
+module.exports.deleteTask = deleteTask;
 module.exports.postTask = postTask;
 module.exports.getTasks = getTasks;
