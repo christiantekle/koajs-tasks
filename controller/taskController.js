@@ -28,6 +28,7 @@ const deleteTask = async (ctx) => {
     await Task.deleteOne({
       _id: ctx.params.id,
     });
+    ctx.body = { status: "Task Deleted" };
   } catch (err) {
     ctx.body = "Error: " + err;
   }
